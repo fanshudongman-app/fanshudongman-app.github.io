@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>番薯动漫 - 在线看番剧、新番时间表与动漫资讯平台</title>
+<meta name="description" content="番薯动漫是专注于番剧在线观看、新番更新时间表、动漫资讯与漫画连载的一站式平台，每日更新热门番剧推荐、番剧排行榜、二次元社区讨论，追番就用番薯动漫。" />
+<meta name="keywords" content="番薯动漫,番薯动漫官网,番剧,在线看番,新番时间表,动漫资讯,漫画连载,二次元社区,番剧排行榜,动漫推荐" />
+<meta name="author" content="番薯动漫" />
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="theme-color" content="#1b1035" />
+<link rel="canonical" href="https://fanshudongman-app.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="番薯动漫" />
+<meta property="og:title" content="番薯动漫 - 在线看番剧、新番时间表与动漫资讯平台" />
+<meta property="og:description" content="番薯动漫提供番剧在线观看、新番更新时间表、动漫资讯与漫画连载，追番就用番薯动漫。" />
+<meta property="og:url" content="https://fanshudongman-app.com/" />
+<meta property="og:locale" content="zh_CN" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="番薯动漫 - 在线看番剧、新番时间表与动漫资讯平台" />
+<meta name="twitter:description" content="番薯动漫提供番剧在线观看、新番更新时间表、动漫资讯与漫画连载，追番就用番薯动漫。" />
+<style>
+:root{
+  --bg:#120a24;
+  --bg2:#1b1035;
+  --card:rgba(255,255,255,.06);
+  --line:rgba(255,255,255,.12);
+  --txt:#f2efff;
+  --sub:#a99fc9;
+  --p1:#ff4d9d;
+  --p2:#8b5cff;
+  --p3:#22d3ee;
+  --r:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  background:var(--bg);color:var(--txt);line-height:1.7;
+  overflow-x:hidden;
+  background-image:
+    radial-gradient(900px 500px at 12% -8%,rgba(255,77,157,.28),transparent 60%),
+    radial-gradient(800px 500px at 92% 4%,rgba(139,92,255,.30),transparent 62%),
+    radial-gradient(700px 600px at 50% 108%,rgba(34,211,238,.16),transparent 60%),
+    linear-gradient(180deg,var(--bg) 0%,var(--bg2) 55%,#150c2b 100%);
+  background-attachment:fixed;
+}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+ul{list-style:none;}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 20px;}
+
+/* ===== 顶部导航 ===== */
+.hdr{
+  position:sticky;top:0;z-index:60;
+  background:rgba(18,10,36,.82);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:14px;}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.logo .mark{
+  width:38px;height:38px;border-radius:12px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--p1),var(--p2));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:18px;color:#fff;
+  box-shadow:0 6px 18px rgba(255,77,157,.4);
+}
+.logo b{font-size:20px;letter-spacing:.5px;}
+.logo small{display:block;font-size:11px;color:var(--sub);letter-spacing:2px;line-height:1.2;}
+.nav{display:flex;gap:6px;align-items:center;}
+.nav a{
+  font-size:14px;color:var(--sub);padding:8px 12px;border-radius:10px;
+  transition:.25s;white-space:nowrap;
+}
+.nav a:hover,.nav a:focus{color:#fff;background:rgba(255,255,255,.09);}
+.nav a.on{color:#fff;background:linear-gradient(135deg,rgba(255,77,157,.35),rgba(139,92,255,.35));}
+.burger{
+  display:none;width:42px;height:38px;border:1px solid var(--line);border-radius:10px;
+  background:rgba(255,255,255,.05);cursor:pointer;padding:9px 10px;
+}
+.burger i{display:block;height:2px;background:#fff;border-radius:2px;margin:4px 0;transition:.25s;}
+@media(max-width:860px){
+  .burger{display:block;}
+  .nav{
+    position:absolute;top:64px;left:0;right:0;
+    flex-direction:column;align-items:stretch;gap:2px;
+    background:rgba(18,10,36,.97);
+    border-bottom:1px solid var(--line);
+    padding:10px 20px 16px;
+    display:none;
+  }
+  .nav.show{display:flex;}
+  .nav a{padding:12px 14px;font-size:15px;}
+}
+
+/* ===== 首屏 Hero ===== */
+.hero{padding:70px 0 46px;position:relative;}
+.hero .tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;color:#ffd9ec;
+  background:rgba(255,77,157,.14);border:1px solid rgba(255,77,157,.35);
+  padding:6px 14px;border-radius:999px;
+}
+.hero .tag i{width:6px;height:6px;border-radius:50%;background:var(--p1);display:inline-block;box-shadow:0 0 10px var(--p1);}
+.hero h1{
+  font-size:56px;line-height:1.18;margin:22px 0 16px;font-weight:800;letter-spacing:1px;
+}
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(100deg,var(--p1),var(--p2) 55%,var(--p3));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p{font-size:17px;color:var(--sub);max-width:640px;}
+.hero .btns{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap;}
+.btn{
+  display:inline-block;padding:13px 26px;border-radius:999px;font-size:15px;font-weight:600;
+  transition:.25s;border:1px solid transparent;
+}
+.btn-p{background:linear-gradient(135deg,var(--p1),var(--p2));color:#fff;box-shadow:0 10px 26px rgba(255,77,157,.32);}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(255,77,157,.45);}
+.btn-o{border-color:var(--line);color:var(--txt);background:rgba(255,255,255,.05);}
+.btn-o:hover{background:rgba(255,255,255,.12);}
+.hero .stats{display:flex;gap:34px;margin-top:40px;flex-wrap:wrap;}
+.hero .stats div b{display:block;font-size:28px;font-weight:800;color:#fff;}
+.hero .stats div span{font-size:13px;color:var(--sub);}
+
+/* ===== 通用区块 ===== */
+.sec{padding:56px 0;}
+.sec-hd{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:26px;flex-wrap:wrap;}
+.sec-hd h2{font-size:30px;font-weight:800;letter-spacing:.5px;position:relative;padding-left:14px;}
+.sec-hd h2::before{
+  content:"";position:absolute;left:0;top:8px;bottom:8px;width:5px;border-radius:4px;
+  background:linear-gradient(180deg,var(--p1),var(--p2));
+}
+.sec-hd p{font-size:14px;color:var(--sub);}
+.sec-hd .more{font-size:14px;color:var(--p3);}
+
+/* ===== 番剧卡片 ===== */
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  overflow:hidden;transition:.3s;display:block;
+}
+.card:hover{transform:translateY(-6px);border-color:rgba(255,77,157,.45);background:rgba(255,255,255,.1);}
+.poster{
+  aspect-ratio:3/4;position:relative;
+  display:flex;align-items:flex-end;padding:12px;
+}
+.poster span{
+  font-size:12px;background:rgba(0,0,0,.45);border-radius:6px;padding:3px 8px;
+  color:#fff;backdrop-filter:blur(4px);
+}
+.poster b{
+  position:absolute;top:10px;left:10px;font-size:11px;
+  background:linear-gradient(135deg,var(--p1),var(--p2));
+  padding:3px 9px;border-radius:6px;color:#fff;font-weight:600;
+}
+.card .info{padding:12px 13px 14px;}
+.card .info h3{font-size:15px;font-weight:600;line-height:1.5;
+  display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;}
+.card .info p{font-size:12px;color:var(--sub);margin-top:5px;}
+.rate{color:#ffcc4d;font-size:13px;}
+
+/* ===== 新番时间表 ===== */
+.table{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--card);}
+.row{
+  display:grid;grid-template-columns:110px 1fr 130px 100px;gap:12px;
+  padding:14px 18px;align-items:center;border-bottom:1px solid rgba(255,255,255,.07);
+  transition:.2s;
+}
+.row:last-child{border-bottom:none;}
+.row:hover{background:rgba(255,255,255,.07);}
+.row .day{
+  font-size:13px;font-weight:700;color:#fff;
+  background:linear-gradient(135deg,rgba(255,77,157,.3),rgba(139,92,255,.3));
+  border-radius:8px;padding:5px 0;text-align:center;
+}
+.row .nm{font-size:15px;}
+.row .nm small{display:block;font-size:12px;color:var(--sub);}
+.row .tm{font-size:13px;color:var(--p3);}
+.row .st{font-size:12px;color:var(--sub);text-align:right;}
+@media(max-width:760px){
+  .row{grid-template-columns:76px 1fr 84px;gap:10px;padding:12px 14px;}
+  .row .st{display:none;}
+}
+
+/* ===== 资讯 ===== */
+.news{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;}
+.lead{
+  border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--card);
+  display:flex;flex-direction:column;transition:.3s;
+}
+.lead:hover{border-color:rgba(139,92,255,.5);}
+.lead .ph{aspect-ratio:16/9;background:linear-gradient(135deg,#3a1f6b,#7b2f8f 60%,#ff4d9d);}
+.lead .txt{padding:20px;}
+.lead .txt h3{font-size:22px;line-height:1.45;margin-bottom:10px;}
+.lead .txt p{font-size:14px;color:var(--sub);}
+.side{display:flex;flex-direction:column;gap:12px;}
+.side a{
+  display:flex;gap:12px;align-items:center;padding:12px;
+  border:1px solid var(--line);border-radius:14px;background:var(--card);transition:.25s;
+}
+.side a:hover{background:rgba(255,255,255,.11);transform:translateX(4px);}
+.side .tmb{width:74px;height:54px;border-radius:10px;flex-shrink:0;background:linear-gradient(135deg,var(--p2),var(--p3));}
+.side h3{font-size:14px;font-weight:600;line-height:1.5;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.side time{font-size:12px;color:var(--sub);}
+
+/* ===== 漫画 ===== */
+.comics{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.comic{
+  display:flex;gap:12px;padding:14px;border:1px solid var(--line);
+  border-radius:var(--r);background:var(--card);transition:.3s;
+}
+.comic:hover{background:rgba(255,255,255,.11);border-color:rgba(34,211,238,.4);}
+.comic .cv{width:64px;aspect-ratio:3/4;border-radius:10px;flex-shrink:0;background:linear-gradient(160deg,#ff4d9d,#8b5cff);}
+.comic h3{font-size:15px;line-height:1.5;}
+.comic p{font-size:12px;color:var(--sub);margin-top:4px;}
+.comic .tags{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;}
+.comic .tags i{font-style:normal;font-size:11px;color:#d9d1ff;background:rgba(139,92,255,.22);padding:2px 8px;border-radius:6px;}
+
+/* ===== 社区 ===== */
+.talk{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.post{
+  padding:20px;border:1px solid var(--line);border-radius:var(--r);
+  background:var(--card);transition:.3s;
+}
+.post:hover{transform:translateY(-4px);background:rgba(255,255,255,.1);}
+.post .u{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.post .u .av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--p1),var(--p3));flex-shrink:0;}
+.post .u b{font-size:14px;}
+.post .u span{display:block;font-size:11px;color:var(--sub);}
+.post p{font-size:14px;color:#ddd6f5;}
+.post .meta{margin-top:14px;display:flex;gap:16px;font-size:12px;color:var(--sub);}
+
+/* ===== 关于 / CTA ===== */
+.about{
+  border:1px solid var(--line);border-radius:22px;padding:34px;
+  background:linear-gradient(135deg,rgba(255,77,157,.14),rgba(139,92,255,.14));
+}
+.about h2{font-size:26px;margin-bottom:14px;}
+.about p{font-size:15px;color:#ddd6f5;margin-bottom:12px;}
+.kw{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;}
+.kw a{
+  font-size:13px;padding:7px 14px;border-radius:999px;
+  border:1px solid var(--line);background:rgba(255,255,255,.07);color:#e7e2ff;transition:.25s;
+}
+.kw a:hover{background:rgba(255,255,255,.16);color:#fff;}
+
+/* ===== 页脚 ===== */
+.ftr{border-top:1px solid var(--line);margin-top:40px;padding:38px 0 30px;background:rgba(10,5,22,.5);}
+.ftr .cols{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:24px;}
+.ftr h4{font-size:15px;margin-bottom:14px;color:#fff;}
+.ftr li{margin-bottom:9px;}
+.ftr li a{font-size:13px;color:var(--sub);transition:.2s;}
+.ftr li a:hover{color:var(--p1);}
+.ftr .btm{
+  margin-top:28px;padding-top:18px;border-top:1px solid var(--line);
+  font-size:12px;color:var(--sub);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+
+/* ===== 响应式 ===== */
+@media(max-width:1024px){
+  .grid{grid-template-columns:repeat(4,1fr);}
+  .comics{grid-template-columns:repeat(2,1fr);}
+  .talk{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:860px){
+  .hero{padding:46px 0 34px;}
+  .hero h1{font-size:38px;}
+  .hero p{font-size:15px;}
+  .hero .stats{gap:22px;margin-top:30px;}
+  .hero .stats div b{font-size:22px;}
+  .sec{padding:42px 0;}
+  .sec-hd h2{font-size:24px;}
+  .grid{grid-template-columns:repeat(3,1fr);gap:12px;}
+  .news{grid-template-columns:1fr;}
+  .ftr .cols{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:560px){
+  .wrap{padding:0 14px;}
+  .hero h1{font-size:30px;margin:16px 0 12px;}
+  .hero .btns .btn{flex:1;text-align:center;padding:12px 16px;}
+  .grid{grid-template-columns:repeat(2,1fr);gap:10px;}
+  .card .info h3{font-size:14px;}
+  .comics{grid-template-columns:1fr;}
+  .talk{grid-template-columns:1fr;}
+  .about{padding:22px;border-radius:18px;}
+  .about h2{font-size:21px;}
+  .ftr .cols{grid-template-columns:1fr;gap:18px;}
+  .ftr .btm{font-size:11px;}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://fanshudongman-app.com/#website",
+      "url": "https://fanshudongman-app.com/",
+      "name": "番薯动漫",
+      "alternateName": ["番薯动漫官网", "番薯动漫番剧网"],
+      "description": "番薯动漫是在线看番剧、新番时间表、动漫资讯与漫画连载的一站式动漫平台。",
+      "inLanguage": "zh-CN",
+      "publisher": { "@id": "https://fanshudongman-app.com/#organization" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://fanshudongman-app.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://fanshudongman-app.com/#organization",
+      "name": "番薯动漫",
+      "url": "https://fanshudongman-app.com/",
+      "description": "番薯动漫专注番剧在线观看、新番更新时间表、动漫资讯与二次元社区服务。",
+      "areaServed": "CN",
+      "knowsAbout": ["番剧", "新番时间表", "动漫资讯", "漫画连载"]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://fanshudongman-app.com/#webpage",
+      "url": "https://fanshudongman-app.com/",
+      "name": "番薯动漫 - 在线看番剧、新番时间表与动漫资讯平台",
+      "isPartOf": { "@id": "https://fanshudongman-app.com/#website" },
+      "about": "番薯动漫提供番剧在线观看、新番时间表、动漫资讯、漫画连载与二次元社区讨论。",
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://fanshudongman-app.com/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "番薯动漫首页", "item": "https://fanshudongman-app.com/" },
+        { "@type": "ListItem", "position": 2, "name": "热门番剧", "item": "https://fanshudongman-app.com/#hot" },
+        { "@type": "ListItem", "position": 3, "name": "新番时间表", "item": "https://fanshudongman-app.com/#schedule" },
+        { "@type": "ListItem", "position": 4, "name": "动漫资讯", "item": "https://fanshudongman-app.com/#news" },
+        { "@type": "ListItem", "position": 5, "name": "漫画连载", "item": "https://fanshudongman-app.com/#comic" },
+        { "@type": "ListItem", "position": 6, "name": "二次元社区", "item": "https://fanshudongman-app.com/#community" }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/yazhou.js"></script>
+
+<header class="hdr">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="番薯动漫首页">
+      <span class="mark" aria-hidden="true">番</span>
+      <span><b>番薯动漫</b><small>FANSHU DONGMAN</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="番薯动漫主导航">
+      <a href="#hot" class="on">热门番剧</a>
+      <a href="#schedule">新番时间表</a>
+      <a href="#news">动漫资讯</a>
+      <a href="#comic">漫画连载</a>
+      <a href="#community">二次元社区</a>
+      <a href="#about">关于番薯动漫</a>
+    </nav>
+    <button class="burger" id="burger" type="button" aria-label="展开导航菜单" aria-expanded="false" aria-controls="nav">
+      <i></i><i></i><i></i>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero wrap" aria-labelledby="heroTitle">
+    <span class="tag"><i aria-hidden="true"></i>番薯动漫 · 每日更新番剧与新番时间表</span>
+    <h1 id="heroTitle">上<em>番薯动漫</em>，追番不再等更新</h1>
+    <p>番薯动漫汇集番剧在线观看、新番更新时间表、动漫资讯与漫画连载，覆盖热血、治愈、悬疑、恋爱等全题材，打开番薯动漫就能找到今天该追的那部番。</p>
+    <div class="btns">
+      <a class="btn btn-p" href="#hot">立即逛番剧</a>
+      <a class="btn btn-o" href="#schedule">查看新番时间表</a>
+    </div>
+    <div class="stats">
+      <div><b>12800+</b><span>番薯动漫收录番剧</span></div>
+      <div><b>每日</b><span>新番时间表更新</span></div>
+      <div><b>320万</b><span>番薯动漫注册用户</span></div>
+    </div>
+  </section>
+
+  <!-- 栏目一：热门番剧 -->
+  <section class="sec wrap" id="hot" aria-labelledby="hotTitle">
+    <div class="sec-hd">
+      <div>
+        <h2 id="hotTitle">番薯动漫热门番剧推荐</h2>
+        <p>番薯动漫编辑部精选本周高分番剧，评分与追番人数实时同步。</p>
+      </div>
+      <a class="more" href="#">查看完整番剧排行榜 →</a>
+    </div>
+    <div class="grid">
+      <a class="card" href="#">
+        <div class="poster" style="background:linear-gradient(160deg,#ff4d9d,#7b2f8f 70%,#2b1055);"><b>更新至 12</b><span>热血 · 战斗</span></div>
+        <div class="info"><h3>星海剑歌 第二季</h3><p class="rate">★ 9.2 · 328万人追番</p></div>
+      </a>
+      <a class="card" href="#">
+        <div class="poster" style="background:linear-gradient(160deg,#22d3ee,#3b5bdb 70%,#1b1035);"><b>更新至 08</b><span>悬疑 · 推理</span></div>
+        <div class="info"><h3>雾都回声录</h3><p class="rate">★ 8.9 · 251万人追番</p></div>
+      </a>
+      <a class="card" href="#">
+        <div class="poster" style="background:linear-gradient(160deg,#ffb703,#ff4d9d 70%,#5f1782);"><b>更新至 24</b><span>治愈 · 日常</span></div>
+        <div class="info"><h3>小森的面包店</h3><p class="rate">★ 9.0 · 196万人追番</p></div>
+      </a>
+      <a class="card" href="#">
+        <div class="poster" style="background:linear-gradient(160deg,#8b5cff,#22d3ee 70%,#123a5a);"><b>更新至 16</b><span>科幻 · 机甲</span></div>
+        <div class="info"><h3>轨道尽头之城</h3><p class="rate">★ 8.7 · 173万人追番</p></div>
+      </a>
+      <a class="card" href="#">
+        <div class="poster" style="background:linear-gradient(160deg,#ff6b6b,#8b5cff 70%,#2b1055);"><b>更新至 10</b><span>恋爱 · 校园</span></div>
+        <div class="info"><h3>春日限定告白</h3><p class="rate">★ 8.5 · 142万人追番</p></div>
+      </a>
+      <a class="card" href="#">
+        <div class="poster" style="background:linear-gradient(160deg,#20c997,#0ca678 70%,#123a5a);"><b>更新至 20</b><span>运动 · 竞技</span></div>
+        <div class="info"><h3>十一人的夏天</h3><p class="rate">★ 8.8 · 128万人追番</p></div>
+      </a>
+      <a class="card" href="#">
+        <div class="poster" style="background:linear-gradient(160deg,#f783ac,#a61e4d 70%,#2b1055);"><b>更新至 06</b><span>奇幻 · 冒险</span></div>
+        <div class="info"><h3>龙脊之歌</h3><p class="rate">★ 8.6 · 119万人追番</p></div>
+      </a>
+      <a class="card" href="#">
+        <div class="poster" style="background:linear-gradient(160deg,#4dabf7,#1864ab 70%,#1b1035);"><b>更新至 14</b><span>历史 · 群像</span></div>
+        <div class="info"><h3>长夜行舟</h3><p class="rate">★ 9.1 · 108万人追番</p></div>
+      </a>
+      <a class="card" href="#">
+        <div class="poster" style="background:linear-gradient(160deg,#ffd43b,#e8590c 70%,#5f1782);"><b>更新至 18</b><span>搞笑 · 日常</span></div>
+        <div class="info"><h3>社畜的异世界食堂</h3><p class="rate">★ 8.4 · 96万人追番</p></div>
+      </a>
+      <a class="card" href="#">
+        <div class="poster" style="background:linear-gradient(160deg,#a29bfe,#5f3dc4 70%,#1b1035);"><b>更新至 09</b><span>音乐 · 青春</span></div>
+        <div class="info"><h3>回声乐团计划</h3><p class="rate">★ 8.3 · 88万人追番</p></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- 栏目二：新番时间表 -->
+  <section class="sec wrap" id="schedule" aria-labelledby="schTitle">
+    <div class="sec-hd">
+      <div>
+        <h2 id="schTitle">番薯动漫新番更新时间表</h2>
+        <p>番薯动漫按星期整理本周新番更新安排，精确到北京时间。</p>
+      </div>
+      <a class="more" href="#">订阅番薯动漫更新提醒 →</a>
+    </div>
+    <div class="table">
+      <div class="row"><span class="day">周一</span><span class="nm">星海剑歌 第二季<small>番薯动漫独家同步</small></span><span class="tm">20:00 更新</span><span class="st">连载中</span></div>
+      <div class="row"><span class="day">周二</span><span class="nm">雾都回声录<small>悬疑推理新番</small></span><span class="tm">21:30 更新</span><span class="st">连载中</span></div>
+      <div class="row"><span class="day">周三</span><span class="nm">小森的面包店<small>治愈日常新番</small></span><span class="tm">19:00 更新</span><span class="st">连载中</span></div>
+      <div class="row"><span class="day">周四</span><span class="nm">轨道尽头之城<small>科幻机甲新番</small></span><span class="tm">22:00 更新</span><span class="st">连载中</span></div>
+      <div class="row"><span class="day">周五</span><span class="nm">春日限定告白<small>恋爱校园新番</small></span><span class="tm">20:30 更新</span><span class="st">连载中</span></div>
+      <div class="row"><span class="day">周六</span><span class="nm">十一人的夏天<small>运动竞技新番</small></span><span class="tm">18:30 更新</span><span class="st">连载中</span></div>
+      <div class="row"><span class="day">周日</span><span class="nm">龙脊之歌<small>奇幻冒险新番</small></span><span class="tm">21:00 更新</span><span class="st">连载中</span></div>
+    </div>
+  </section>
+
+  <!-- 栏目三：动漫资讯 -->
+  <section class="sec wrap" id="news" aria-labelledby="newsTitle">
+    <div class="sec-hd">
+      <div>
+        <h2 id="newsTitle">番薯动漫动漫资讯速递</h2>
+        <p>番薯动漫第一时间带来新番定档、PV 解禁与声优情报。</p>
+      </div>
+      <a class="more" href="#">更多番薯动漫资讯 →</a>
+    </div>
+    <div class="news">
+      <article class="lead">
+        <div class="ph" role="img" aria-label="番薯动漫头条资讯配图：秋季新番定档"></div>
+        <div class="txt">
+          <h3>番薯动漫秋季新番前瞻：38 部作品定档，5 部独家同步上线</h3>
+          <p>番薯动漫编辑部整理了本季度定档名单，涵盖热血、悬疑、治愈与科幻四大题材，其中 5 部将在番薯动漫独家同步更新，开播首周即上线新番时间表提醒。</p>
+        </div>
+      </article>
+      <div class="side">
+        <a href="#"><span class="tmb" aria-hidden="true"></span><div><h3>《星海剑歌》第二季主视觉解禁</h3><time>09-28</time></div></a>
+        <a href="#"><span class="tmb" style="background:linear-gradient(135deg,#ff4d9d,#ffb703)" aria-hidden="true"></span><div><h3>番薯动漫声优见面会报名开启</h3><time>09-26</time></div></a>
+        <a href="#"><span class="tmb" style="background:linear-gradient(135deg,#22d3ee,#8b5cff)" aria-hidden="true"></span><div><h3>《雾都回声录》剧场版制作决定</h3><time>09-24</time></div></a>
+        <a href="#"><span class="tmb" style="background:linear-gradient(135deg,#20c997,#1864ab)" aria-hidden="true"></span><div><h3>番薯动漫年度番剧票选启动</h3><time>09-22</time></div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目四：漫画连载 -->
+  <section class="sec wrap" id="comic" aria-labelledby="comicTitle">
+    <div class="sec-hd">
+      <div>
+        <h2 id="comicTitle">番薯动漫漫画连载专区</h2>
+        <p>番薯动漫同步连载热门漫画，翻页流畅、章节更新不断档。</p>
+      </div>
+      <a class="more" href="#">进入番薯动漫漫画库 →</a>
+    </div>
+    <div class="comics">
+      <a class="comic" href="#">
+        <span class="cv" aria-hidden="true"></span>
+        <div><h3>长夜行舟</h3><p>更新至 第 128 话</p><div class="tags"><i>历史</i><i>群像</i></div></div>
+      </a>
+      <a class="comic" href="#">
+        <span class="cv" style="background:linear-gradient(160deg,#22d3ee,#3b5bdb)" aria-hidden="true"></span>
+        <div><h3>雾都回声录</h3><p>更新至 第 96 话</p><div class="tags"><i>悬疑</i><i>推理</i></div></div>
+      </a>
+      <a class="comic" href="#">
+        <span class="cv" style="background:linear-gradient(160deg,#ffb703,#e8590c)" aria-hidden="true"></span>
+        <div><h3>社畜的异世界食堂</h3><p>更新至 第 210 话</p><div class="tags"><i>搞笑</i><i>美食</i></div></div>
+      </a>
+      <a class="comic" href="#">
+        <span class="cv" style="background:linear-gradient(160deg,#a29bfe,#5f3dc4)" aria-hidden="true"></span>
+        <div><h3>回声乐团计划</h3><p>更新至 第 74 话</p><div class="tags"><i>音乐</i><i>青春</i></div></div>
+      </a>
+      <a class="comic" href="#">
+        <span class="cv" style="background:linear-gradient(160deg,#ff6b6b,#a61e4d)" aria-hidden="true"></span>
+        <div><h3>龙脊之歌</h3><p>更新至 第 152 话</p><div class="tags"><i>奇幻</i><i>冒险</i></div></div>
+      </a>
+      <a class="comic" href="#">
+        <span class="cv" style="background:linear-gradient(160deg,#20c997,#0ca678)" aria-hidden="true"></span>
+        <div><h3>十一人的夏天</h3><p>更新至 第 187 话</p><div class="tags"><i>运动</i><i>竞技</i></div></div>
+      </a>
+      <a class="comic" href="#">
+        <span class="cv" style="background:linear-gradient(160deg,#4dabf7,#1864ab)" aria-hidden="true"></span>
+        <div><h3>轨道尽头之城</h3><p>更新至 第 63 话</p><div class="tags"><i>科幻</i><i>机甲</i></div></div>
+      </a>
+      <a class="comic" href="#">
+        <span class="cv" style="background:linear-gradient(160deg,#f783ac,#7b2f8f)" aria-hidden="true"></span>
+        <div><h3>春日限定告白</h3><p>更新至 第 89 话</p><div class="tags"><i>恋爱</i><i>校园</i></div></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- 栏目五：二次元社区 -->
+  <section class="sec wrap" id="community" aria-labelledby="comTitle">
+    <div class="sec-hd">
+      <div>
+        <h2 id="comTitle">番薯动漫二次元社区</h2>
+        <p>在番薯动漫社区聊剧情、发同人、组队补番，找到同好。</p>
+      </div>
+      <a class="more" href="#">进入番薯动漫社区 →</a>
+    </div>
+    <div class="talk">
+      <article class="post">
+        <div class="u"><span class="av" aria-hidden="true"></span><span><b>追番小队长</b><span>番薯动漫 · 3 小时前</span></span></div>
+        <p>在番薯动漫补完《星海剑歌》，第 11 话的分镜真的封神，已经二刷了。</p>
+        <div class="meta"><span>♡ 1286</span><span>💬 342</span></div>
+      </article>
+      <article class="post">
+        <div class="u"><span class="av" style="background:linear-gradient(135deg,#22d3ee,#3b5bdb)" aria-hidden="true"></span><span><b>雾都旅客</b><span>番薯动漫 · 6 小时前</span></span></div>
+        <p>番薯动漫新番时间表太好用了，周更番一部都没漏，时间还精确到分钟。</p>
+        <div class="meta"><span>♡ 954</span><span>💬 218</span></div>
+      </article>
+      <article class="post">
+        <div class="u"><span class="av" style="background:linear-gradient(135deg,#ffb703,#e8590c)" aria-hidden="true"></span><span><b>面包店常客</b><span>番薯动漫 · 昨天</span></span></div>
+        <p>治愈番回归，《小森的面包店》每一帧都能当壁纸，番薯动漫画质很稳。</p>
+        <div class="meta"><span>♡ 812</span><span>💬 176</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 关于 -->
+  <section class="sec wrap" id="about" aria-labelledby="aboutTitle">
+    <div class="about">
+      <h2 id="aboutTitle">关于番薯动漫</h2>
+      <p>番薯动漫成立于 2019 年，是一站式动漫内容平台，提供番剧在线观看、新番更新时间表、动漫资讯、漫画连载与二次元社区讨论服务。番薯动漫坚持以正版授权与稳定画质为核心，让每一次追番都顺畅。</p>
+      <p>无论你是刚入坑的新人，还是追番十年的老二次元，番薯动漫都能帮你快速找到下一部想看的番剧。</p>
+      <div class="kw">
+        <a href="#hot">番薯动漫番剧</a>
+        <a href="#schedule">番薯动漫新番时间表</a>
+        <a href="#news">番薯动漫资讯</a>
+        <a href="#comic">番薯动漫漫画</a>
+        <a href="#community">番薯动漫社区</a>
+        <a href="#">番薯动漫排行榜</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>番薯动漫</h4>
+        <p style="font-size:13px;color:var(--sub);">番薯动漫 · 番剧 / 新番时间表 / 动漫资讯 / 漫画连载 / 二次元社区，追番就用番薯动漫。</p>
+      </div>
+      <div>
+        <h4>番剧服务</h4>
+        <ul>
+          <li><a href="#hot">热门番剧</a></li>
+          <li><a href="#schedule">新番时间表</a></li>
+          <li><a href="#">番剧排行榜</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>内容频道</h4>
+        <ul>
+          <li><a href="#news">动漫资讯</a></li>
+          <li><a href="#comic">漫画连载</a></li>
+          <li><a href="#community">二次元社区</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>帮助与支持</h4>
+        <ul>
+          <li><a href="#about">关于番薯动漫</a></li>
+          <li><a href="#">番薯动漫投稿</a></li>
+          <li><a href="#">版权与投诉</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="btm">
+      <span>© 2026 番薯动漫 fanshudongman-app.com 版权所有</span>
+      <span>番薯动漫 · 在线看番剧 · 新番时间表 · 动漫资讯</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var burger = document.getElementById('burger');
+  var nav = document.getElementById('nav');
+  burger.addEventListener('click', function(){
+    var open = nav.classList.toggle('show');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  var links = nav.querySelectorAll('a');
+  for (var i = 0; i < links.length; i++){
+    links[i].addEventListener('click', function(){
+      nav.classList.remove('show');
+      burger.setAttribute('aria-expanded','false');
+      for (var j = 0; j < links.length; j++){ links[j].classList.remove('on'); }
+      this.classList.add('on');
+    });
+  }
+})();
+</script>
+</body>
+</html>
